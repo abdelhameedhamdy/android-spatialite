@@ -8,7 +8,7 @@ apply plugin: 'de.undercouch.download'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.abdelhameedhamdy'
-version = '3.0.0'
+version = '3.0.1'
 
 import de.undercouch.gradle.tasks.download.Download
 import org.gradle.internal.os.OperatingSystem;
@@ -61,7 +61,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.abdelhameedhamdy'
                 artifactId = 'android-spatialite'
-                version = '3.0.0'
+                version = '3.0.1'
             }
         }
     }
