@@ -1,25 +1,8 @@
-/* config.h.  Generated from config.h.in by configure.  */
-/* config.h.in.  Generated from configure.ac by autoheader.  */
+/* ./config.h.  Generated from config.h.in by configure.  */
+/* ./config.h.in - manually maintained */
 
-// SV: Flags values are set in Spatialite's Android.mk
-
-/* Should be defined in order to enable GCP support. */
-/* #undef ENABLE_GCP */
-
-/* Should be defined in order to enable GeoPackage support. */
-/* #define ENABLE_GEOPACKAGE */
-
-/* Should be defined in order to enable LIBXML2 support. */
-/* #undef ENABLE_LIBXML2 */
-
-/* Should be defined in order to enable LWGEOM support. */
-/* #undef ENABLE_LWGEOM */
-
-/* Should be defined in order to enable GEOS_ADVANCED support. */
-/* #define GEOS_ADVANCED */
-
-/* Should be defined in order to enable GEOS_TRUNK experimental support. */
-/* #undef GEOS_TRUNK */
+/* depending on SQLite library version. */
+#define HAVE_DECL_SQLITE_INDEX_CONSTRAINT_LIKE 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
@@ -28,13 +11,13 @@
 #define HAVE_FCNTL_H 1
 
 /* Define to 1 if you have the `fdatasync' function. */
-/* #undef HAVE_FDATASYNC */
+#define HAVE_FDATASYNC 1
 
 /* Define to 1 if you have the <float.h> header file. */
 #define HAVE_FLOAT_H 1
 
 /* Define to 1 if you have the <freexl.h> header file. */
-/* #undef HAVE_FREEXL_H */
+#define HAVE_FREEXL_H 1
 
 /* Define to 1 if you have the `ftruncate' function. */
 #define HAVE_FTRUNCATE 1
@@ -49,26 +32,26 @@
 #define HAVE_GETTIMEOFDAY 1
 
 /* Define to 1 if you have the <iconv.h> header file. */
-/* #undef HAVE_ICONV_H */
+#define HAVE_ICONV_H 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
 
-/* Define to 1 if you have the <liblwgeom.h> header file. */
-/* #undef HAVE_LIBLWGEOM_H */
+/* Define to 1 if you have the <librttopo.h> header file. */
+#define HAVE_LIBRTTOPO_H 1
 
 /* Define to 1 if you have the `sqlite3' library (-lsqlite3). */
-#define HAVE_LIBSQLITE3 1
+/* #undef HAVE_LIBSQLITE3 */
 
 /* Define to 1 if you have the `z' library (-lz). */
-/* #undef HAVE_LIBZ */
+#define HAVE_LIBZ 1
 
 /* Define to 1 if you have the `localtime_r' function. */
 #define HAVE_LOCALTIME_R 1
 
 /* Define to 1 if `lstat' has the bug that it succeeds when given the
    zero-length file name argument. */
-#define HAVE_LSTAT_EMPTY_STRING_BUG 1
+/* #undef HAVE_LSTAT_EMPTY_STRING_BUG */
 
 /* Define to 1 if you have the <math.h> header file. */
 #define HAVE_MATH_H 1
@@ -82,8 +65,14 @@
 /* Define to 1 if you have the `memset' function. */
 #define HAVE_MEMSET 1
 
+/* Define to 1 if you have the <minizip/unzip.h> header file. */
+#define HAVE_MINIZIP_UNZIP_H 1
+
 /* Define to 1 if you have the <proj_api.h> header file. */
-#define HAVE_PROJ_API_H 1
+/* #undef HAVE_PROJ_API_H */
+
+/* Define to 1 if you have the <proj.h> header file. */
+#define HAVE_PROJ_H 1
 
 /* Define to 1 if you have the <sqlite3ext.h> header file. */
 #define HAVE_SQLITE3EXT_H 1
@@ -96,7 +85,7 @@
 
 /* Define to 1 if `stat' has the bug that it succeeds when given the
    zero-length file name argument. */
-#define HAVE_STAT_EMPTY_STRING_BUG 1
+/* #undef HAVE_STAT_EMPTY_STRING_BUG */
 
 /* Define to 1 if you have the <stddef.h> header file. */
 #define HAVE_STDDEF_H 1
@@ -148,7 +137,7 @@
 
 /* Define to 1 if `lstat' dereferences a symlink specified with a trailing
    slash. */
-/* #undef LSTAT_FOLLOWS_SLASHED_SYMLINK */
+#define LSTAT_FOLLOWS_SLASHED_SYMLINK 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
@@ -157,30 +146,6 @@
 /* Must be defined in order to disable debug mode. */
 #define NDEBUG 1
 
-/* Should be defined in order to disable EPSG full support. */
-/* #undef OMIT_EPSG */
-
-/* Should be defined in order to disable FREEXL support. */
-/* #undef OMIT_FREEXL */
-
-/* Should be defined in order to disable GEOCALLBACKS support. */
-/* #undef OMIT_GEOCALLBACKS */
-
-/* Should be defined in order to disable GEOS support. */
-/* #undef OMIT_GEOS */
-
-/* Should be defined in order to disable ICONV support. */
-/* #define OMIT_ICONV 1 */
-
-/* Should be defined in order to disable MATHSQL support. */
-/* #undef OMIT_MATHSQL */
-
-/* Should be defined in order to disable PROJ.4 support. */
-/* #undef OMIT_PROJ */
-
-/* Name of package */
-#define PACKAGE "libspatialite"
-
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "a.furieri@lqt.it"
 
@@ -188,7 +153,7 @@
 #define PACKAGE_NAME "libspatialite"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "libspatialite 4.3.0a"
+#define PACKAGE_STRING "libspatialite 5.1.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "libspatialite"
@@ -197,22 +162,16 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "4.3.0a"
-
-/* Should be defined when linking liblwgeom from PostGIS 2.1 (or later). */
-/* #undef POSTGIS_2_1 */
+#define PACKAGE_VERSION "5.1.0"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
-#define TIME_WITH_SYS_TIME 1
+/* #undef TIME_WITH_SYS_TIME */
 
 /* Define to 1 if your <sys/time.h> declares `struct tm'. */
 /* #undef TM_IN_SYS_TIME */
-
-/* Version number of package */
-#define VERSION "4.3.0a"
 
 /* Must be =64 in order to enable huge-file support. */
 #define _FILE_OFFSET_BITS 64
@@ -235,3 +194,6 @@
 /* Define to empty if the keyword `volatile' does not work. Warning: valid
    code using `volatile' can become incorrect without. Disable with care. */
 /* #undef volatile */
+
+/* includes gaiaconfig.h */
+#include "./src/headers/spatialite/gaiaconfig.h"

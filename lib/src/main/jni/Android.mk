@@ -45,7 +45,7 @@ XML2_PATH := libxml2-2.9.2
 FREEXL_PATH := freexl-1.0.2
 
 include $(NDK_MODULES_PATH)/sqlite/sqlite.mk
-include $(NDK_MODULES_PATH)/libspatialite-latest/$(SPATIALITE_PATH).mk
+include $(NDK_MODULES_PATH)/libspatialite/$(SPATIALITE_PATH).mk
 include $(NDK_MODULES_PATH)/proj.4/$(PROJ4_PATH).mk
 include $(NDK_MODULES_PATH)/geos/$(GEOS_PATH).mk
 include $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH).mk
