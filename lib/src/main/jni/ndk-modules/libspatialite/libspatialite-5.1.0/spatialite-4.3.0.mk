@@ -24,6 +24,7 @@ common_sqlite_flags := \
 spatialite_flags := \
  -DOMIT_FREEXL \
  -DTARGET_CPU=\"$(TARGET_ARCH_ABI)\" \
+ -DVERSION="\"5.1.0\"" \
  -Dfdatasync=fsync \
  -DSQLITE_ENABLE_RTREE=1 \
  -DENABLE_GCP=1 \
