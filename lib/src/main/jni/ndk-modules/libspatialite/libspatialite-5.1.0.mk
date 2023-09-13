@@ -1,4 +1,3 @@
-LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 # ./configure  --enable-lwgeom=no --enable-gcp --enable-examples=no --build=x86_64-pc-linux-gnu --host=arm-linux-eabi
 # ./configure  --build=x86_64-pc-linux-gnu --host=arm-linux-eabi --without-grib --prefix=$PROJECT/external/gdal
@@ -58,8 +57,6 @@ LOCAL_C_INCLUDES := \
  $(PROJ4_PATH)/src \
  $(LZMA_PATH)/src/liblzma/api \
  $(XML2_PATH)/include
- $(LOCAL_PATH)/$(SPATIALITE_PATH)/src/headers \
-$(LOCAL_PATH)/config
 LOCAL_SRC_FILES := \
  $(SPATIALITE_PATH)/src/connection_cache/alloc_cache.c \
  $(SPATIALITE_PATH)/src/connection_cache/generator/code_generator.c \
@@ -189,6 +186,5 @@ LOCAL_SRC_FILES := \
  $(SPATIALITE_PATH)/src/virtualtext/virtualtext.c \
  $(SPATIALITE_PATH)/src/wfs/wfs_in.c
 LOCAL_STATIC_LIBRARIES := iconv proj4 geos libxml2 libsqlite3x libxml2 freexl
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/$(SPATIALITE_PATH)/src/headers
-LOCAL_EXPORT_LDLIBS := -llog -lz
+
 include $(BUILD_STATIC_LIBRARY)
