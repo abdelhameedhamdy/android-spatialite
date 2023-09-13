@@ -53,19 +53,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.abdelhameedhamdy'
-                artifactId = 'android-spatialite'
-                version = '3.0.1'
-            }
-        }
-    }
-
 ext {
     sqliteDistributionUrl = 'https://www.sqlite.org/2023/sqlite-amalgamation-3430100.zip'
 }
@@ -117,14 +104,13 @@ if (ndkDir == null) {
 
 task buildSqlite(dependsOn: installSqlite, type: Exec) {
     println("NDK directory: $ndkDir")
-
     // Add NDK_DEBUG=1 for debug symbols or V=1 for verbose building output
     if (OperatingSystem.current().linux) {
         commandLine "$ndkDir/ndk-build", '-j8', '-C', file('src/main/jni').absolutePath
     } else if (OperatingSystem.current().windows) {
         commandLine "$ndkDir/ndk-build.cmd", '-j8', '-C', file('src/main/jni').absolutePath
     } else {
-        throw GradleScriptException("Unsupported OS")
+        commandLine "$ndkDir/ndk-build", '-j8', '-C', file('src/main/jni').absolutePath
     }
 }
 
@@ -134,7 +120,7 @@ task ndkClean(type: Exec, description: 'Clean NDK Binaries') {
     } else if (OperatingSystem.current().windows) {
         commandLine "$ndkDir/ndk-build.cmd", 'clean', '-C', file('src/main/jni').absolutePath
     } else {
-        throw GradleScriptException("Unsupported OS")
+        commandLine "$ndkDir/ndk-build", 'clean', '-C', file('src/main/jni').absolutePath
     }
 }
 
