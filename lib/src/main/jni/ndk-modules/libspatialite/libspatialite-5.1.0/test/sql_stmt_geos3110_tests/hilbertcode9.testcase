@@ -1,7 +1,0 @@
-HilbertCode - Text Extent
-:memory: #use in-memory database
-SELECT HilbertCode(MakePoint(10, 20), 'extent', 16)
-1 # rows (not including the header row)
-1 # columns
-HilbertCode(MakePoint(10, 20), 'extent', 16)
-(NULL)

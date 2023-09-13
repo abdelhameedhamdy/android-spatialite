@@ -1,7 +1,0 @@
-GeosConcaveHull - Int Geometry
-:memory: #use in-memory database
-SELECT GeosConcaveHull(1, 0.0)
-1 # rows (not including the header row)
-1 # columns
-GeosConcaveHull(1, 0.0)
-(NULL)

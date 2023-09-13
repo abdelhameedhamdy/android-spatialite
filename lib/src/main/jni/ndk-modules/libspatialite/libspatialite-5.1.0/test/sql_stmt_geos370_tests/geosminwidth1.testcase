@@ -1,7 +1,0 @@
-GEOSMinimumWidth- NULL Geometry
-:memory: #use in-memory database
-SELECT GEOSMinimumWidth(NULL)
-1 # rows (not including the header row)
-1 # columns
-GEOSMinimumWidth(NULL)
-(NULL)

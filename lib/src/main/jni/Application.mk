@@ -7,3 +7,4 @@ NDK_APP_LIBS_OUT=../jniLibs
 # Temp workaround for https://github.com/android-ndk/ndk/issues/332
 APP_DEPRECATED_HEADERS := true
 APP_SHORT_COMMANDS := true
+APP_ALLOW_MISSING_DEPS :=true

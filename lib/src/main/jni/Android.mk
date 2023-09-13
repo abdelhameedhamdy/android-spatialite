@@ -36,7 +36,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 NDK_MODULES_PATH := ndk-modules
 
-SPATIALITE_PATH := libspatialite-5.1.0
+SPATIALITE_PATH := libspatialite-4.3.0a
 PROJ4_PATH := proj-4.8.0
 GEOS_PATH := geos-3.4.2
 ICONV_PATH := libiconv-1.13
