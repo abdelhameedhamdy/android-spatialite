@@ -6,7 +6,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'de.undercouch.download'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.sevar83'
+group = 'com.github.abdelhameedhamdy'
 
 import de.undercouch.gradle.tasks.download.Download
 import org.gradle.internal.os.OperatingSystem;
