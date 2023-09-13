@@ -1,5 +1,6 @@
 plugins {
     id 'de.undercouch.download' version '3.3.0'
+    id 'maven-publish'
 }
 
 apply plugin: 'com.android.library'
@@ -7,6 +8,7 @@ apply plugin: 'de.undercouch.download'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.abdelhameedhamdy'
+version = '3.0.0'
 
 import de.undercouch.gradle.tasks.download.Download
 import org.gradle.internal.os.OperatingSystem;
@@ -50,6 +52,19 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.abdelhameedhamdy'
+                artifactId = 'android-spatialite'
+                version = '3.0.0'
+            }
+        }
+    }
 
 ext {
     sqliteDistributionUrl = 'https://www.sqlite.org/2023/sqlite-amalgamation-3430100.zip'
