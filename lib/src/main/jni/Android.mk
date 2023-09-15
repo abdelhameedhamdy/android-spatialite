@@ -1,10 +1,27 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
+JSQLITE_PATH := javasqlite-20120209
+SQLITE_PATH := sqlite-amalgamation-3430100
+SPATIALITE_PATH := libspatialite-5.0.0
+PROJ_PATH := proj-6.1.1
+GEOS_PATH := geos-3.7.2
+JSONC_PATH := json-c-0.13.1
+RTTOPO_PATH := librttopo-20180125
+XML2_PATH := libxml2-2.9.8
+LZMA_PATH := xz-5.2.1
+ICONV_PATH := libiconv-1.15
+
+NDK_MODULES_PATH := ndk-modules
+
 LOCAL_MODULE:= libandroid_spatialite
 
 LOCAL_STATIC_LIBRARIES := \
     spatialite
+
+# LOCAL_C_INCLUDES := \
+#     $(NDK_MODULES_PATH)/$(SQLITE_PATH) \
+#     $(NDK_MODULES_PATH)/$(SPATIALITE_PATH)/src/headers \
 
 LOCAL_SRC_FILES:= \
     android_database_SQLiteCommon.cpp \
@@ -34,23 +51,46 @@ include $(BUILD_SHARED_LIBRARY)
 # The library concrete version subfolder name must match its .mk file.
 # E.g. libxml2-2.9.2/ -> libxml2-2.9.2.mk
 
-NDK_MODULES_PATH := ndk-modules
 
-SPATIALITE_PATH := libspatialite-4.3.0a
-PROJ4_PATH := proj-4.8.0
-GEOS_PATH := geos-3.4.2
-ICONV_PATH := libiconv-1.13
-LZMA_PATH := xz-5.2.1
-XML2_PATH := libxml2-2.9.2
-FREEXL_PATH := freexl-1.0.2
 
-include $(NDK_MODULES_PATH)/sqlite/sqlite.mk
-include $(NDK_MODULES_PATH)/libspatialite/$(SPATIALITE_PATH).mk
-include $(NDK_MODULES_PATH)/proj.4/$(PROJ4_PATH).mk
-include $(NDK_MODULES_PATH)/geos/$(GEOS_PATH).mk
-include $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH).mk
-include $(NDK_MODULES_PATH)/liblzma/$(LZMA_PATH).mk
-include $(NDK_MODULES_PATH)/libxml2/$(XML2_PATH).mk
-include $(NDK_MODULES_PATH)/freexl/$(FREEXL_PATH).mk
+# -------------------
+# Android_5.0.0.mk
+# -------------------
+# For Spatialite without RasterLite2
+# - jsqlite-20120209.mk
+# 'HAVE_RASTERLITE2=0'
+# -------------------
+# [from 'jni/' directory]
+# ndk-build clean
+# ndk-build
+# OR
+# ndk-build clean ; ndk-build
+# -------------------
+# As of 2019-07-07
+# -------------------
+# Order of running:
+# - javasqlite[20120209] code corrections for 64-bits
+# - sqlite3[3280000]
+# - spatialite [5.0.0-20180508]
+# - proj[6.1.1]
+# - geos[3.7.2]
+# - json-c[0.13.1]
+# - librttopo[20180125]
+# - libxml2[2.9.8]
+# - xz[5.2.1 (5.2.3 fails)]
+# - libiconv[1.15]
+# -------------------
+
+# -------------------
+# include $(NDK_MODULES_PATH)/jsqlite-20120209.mk
+include $(NDK_MODULES_PATH)/$(SQLITE_PATH)/sqlite-3430100.mk
+include $(NDK_MODULES_PATH)/spatialite-5.0.0.mk
+include $(NDK_MODULES_PATH)/proj-6.1.1.mk
+include $(NDK_MODULES_PATH)/geos-3.7.2.mk
+# include $(NDK_MODULES_PATH)/json-c-0.13.1.mk
+include $(NDK_MODULES_PATH)/librttopo-1.1.0.mk
+include $(NDK_MODULES_PATH)/libxml2-2.9.8.mk
+include $(NDK_MODULES_PATH)/lzma-xz-5.2.1.mk
+include $(NDK_MODULES_PATH)/iconv-1.15.mk
 
 # NOTE: iconv is dependency of Spatialite virtual modules like VirtualText, VirtualShape, VirtualXL, etc.
